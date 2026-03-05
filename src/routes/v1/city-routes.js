@@ -1,10 +1,14 @@
 import express from 'express';
 const router = express.Router();
-import CityController from '../../controllers/airplane-controller.js';
+import CityController from '../../controllers/city-controller.js';
+import {CityMiddlewares} from '../../middlewares';
+import validateCreateRequest from '../../middlewares/city-middlewares.js';
 const cityController = new CityController();
-// /api/v1/airplanes POST
-// http://localhost:3000/api/v1/airplane
-router.post('/', CityController.createCityController);//******************/\
+// /api/v1/city POST
+
+router.post('/',
+    validateCreateRequest,
+    cityController.createCityController);//******************/\
 //Routes
 
 

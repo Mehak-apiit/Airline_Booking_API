@@ -3,6 +3,6 @@ import airplaneRoutes from './airplane-routes.js';
 import cityRoutes from './city-routes.js';
 const router = express.Router();
 // http://localhost:3000/api/v1/airplane
-router.use('/airplane',airplaneRoutes);
-router.use('/cities',cityRoutes);
+router.use('/airplane', airplaneRoutes);
+router.use('/city', cityRoutes);
 export default router;

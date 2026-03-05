@@ -1,5 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
-import CityRepository from '../repositories/airplane-repository.js';
+import CityRepository from '../repositories/city-repository.js';
 const cityRepository = new CityRepository();
 class CityService {
     async createCityService(data) {
@@ -7,7 +7,7 @@ class CityService {
             const city = await cityRepository.create(data);
             return city;
         } catch (error) {
-            if(error.name == 'SequelizeUniqueConstraintError' || error.name == 'SequelizeValidationError'){
+            if (error.name == 'SequelizeUniqueConstraintError' || error.name == 'SequelizeValidationError') {
                 let explanation = [];
                 error.errors.forEach((err) => {
                     explanation.push(err.message);
@@ -21,7 +21,7 @@ class CityService {
         }
 
     };
-    
+
 
 }
 export default CityService;

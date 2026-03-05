@@ -1,16 +1,17 @@
 import { StatusCodes } from "http-status-codes";
-import CityService from '../services/airplane-service.js';
-import {successResponseBody, errorResponseBody} from '../utils/response-body.js';
-const cityService = new City();
+import CityService from '../services/city-service.js';
+import { successResponseBody, errorResponseBody } from '../utils/response-body.js';
+const cityService = new CityService();
 import { model } from "mongoose";
 import { response } from "express"
 class CityController {
     async createCityController(req, res) {
         try {
-            const city = await CityService.createCityService({
-                name: req.body.name;
+            console.log(req.body.name);
+            const city = await cityService.createCityService({
+                name: req.body.name
             });
-            successResponseBody.data =city;
+            successResponseBody.data = city;
             return res
                 .status(StatusCodes.CREATED)
                 .json({
