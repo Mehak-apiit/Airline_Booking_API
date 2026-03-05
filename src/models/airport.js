@@ -1,10 +1,17 @@
 'use strict';
 
+import { model } from 'mongoose';
 import { Model, DataTypes } from 'sequelize';
 
 export default function defineAirport(sequelize) {
   class Airplane extends Model {
     static associate(models) {
+      // define association here
+      this.belongsTo(models.City,{
+        foreignKey: 'cityId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
     }
   }
   Airplane.init({

@@ -9,6 +9,9 @@ export default function defineCity(sequelize){
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Airport, {
+        foreignKey:'cityId'
+      });
     }
   }
   City.init({
