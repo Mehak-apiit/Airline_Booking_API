@@ -21,6 +21,16 @@ class AirplaneService {
         }
 
     };
+     async getAirplaneService(id) {
+        try {
+            const airplanes = await airplaneRepository.get(id);
+            return airplanes;
+        } catch (error) {
+            throw error;
+        }
+
+    };
+    
 
 
 }

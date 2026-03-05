@@ -7,5 +7,6 @@ const airplaneController = new AirplaneController();
 // http://localhost:3000/api/v1/airplane
 router.post('/', airplaneController.createController);
 router.get('/', airplaneController.getAirplanes);
+router.get('/:id', airplaneController.getAirplane);
 
 export default router;

@@ -46,5 +46,19 @@ class AirplaneController {
                 .json(errorResponseBody);
         }
     };
+    async getAirplane(req, res) {
+        try {
+            const airplanes = await airplaneService.getAirplaneService(req.params.id);
+            successResponseBody.data = airplanes;
+            return res
+                .status(StatusCodes.OK)
+                .json(successResponseBody);
+        } catch (error) {
+            errorResponseBody.error = error;
+            return res
+                .status(error.StatusCodes)
+                .json(errorResponseBody);
+        }
+    };
 }
 export default AirplaneController;
