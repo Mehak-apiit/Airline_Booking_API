@@ -1,6 +1,6 @@
 'use strict';
 import { Model, DataTypes } from 'sequelize';
-export default function defineCity(sequelize){
+export default function defineCity(sequelize) {
   class City extends Model {
     /**
      * Helper method for defining associations.
@@ -8,10 +8,9 @@ export default function defineCity(sequelize){
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      this.hasMany(models.Airport, {
-        foreignKey:'cityId'
-      });
+      this.hasMany(models.Airport,{
+        foreignKey: 'cityId'
+      })
     }
   }
   City.init({

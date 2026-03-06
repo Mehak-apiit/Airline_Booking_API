@@ -1,20 +1,27 @@
 'use strict';
 
-import { model } from 'mongoose';
+
 import { Model, DataTypes } from 'sequelize';
 
 export default function defineAirport(sequelize) {
-  class Airplane extends Model {
+  class Airport extends Model {
     static associate(models) {
       // define association here
       this.belongsTo(models.City,{
         foreignKey: 'cityId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+      });
+      this.hasMany(models.Flight, {
+        foreignKey: 'departureAirportId',
+        onDelete: 'CASCADE'
+      });
+      this.hasMany(models.Flight, {
+        foreignKey: 'arrivalAirportId',
+        onDelete: 'CASCADE'
+
       });
     }
   }
-  Airplane.init({
+  Airport.init({
     name:{
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,8 +38,8 @@ export default function defineAirport(sequelize) {
     }
   }, {
     sequelize,
-    modelName: 'Airplane',
+    modelName: 'Airport',
   });
-  return Airplane;
+  return Airport;
 }
 
