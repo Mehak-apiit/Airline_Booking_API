@@ -1,2 +1,3 @@
 import CityMiddlewares from './city-middlewares.js';
-export default CityMiddlewares;
+import AirportMiddlewares from './airport-middlewares.js'
+export {CityMiddlewares,AirportMiddlewares};

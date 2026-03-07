@@ -1,0 +1,14 @@
+import express from 'express';
+//import createAirplane from '../../controllers/index';
+const router = express.Router();
+import AirportController from '../../controllers/airport-controller.js';
+import AirportRepository from '../../repositories/airport-repository.js';
+const airportController = new AirportController();
+// /api/v1/airplanes POST
+// http://localhost:3000/api/v1/airplane
+router.post('/', validateCreateRequest,airportController.createAirportComtroller);
+router.get('/', airportController.getAirports);
+router.get('/:id', airportController.getAirport);
+router.delete('/:id', airportController.destroyAirport);
+
+export default router;
