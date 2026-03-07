@@ -42,6 +42,20 @@ class FlightController {
 
         }
     };
+    async getAllFlights(req,res) {
+        try {
+            const flights = await FlightService.getAllFlights(req.query);
+            successResponseBody.data = flight;
+            return res
+                     .status(StatusCodes.CREATED)
+                     .json(successResponseBody);
+
+        }catch(error){
+            errorResponseBody.err = error;
+            throw error;
+
+        }
+    }
    
 }
 export default FlightController;
