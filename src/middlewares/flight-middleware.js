@@ -22,7 +22,7 @@ function validateCreateRequest(req, res, next) {
             .status(StatusCodes.BAD_REQUEST)
             .json(errorResponseBody);
     }
-    if (!req.body.arrivaTime) {
+    if (!req.body.arrivalTime) {
         errorResponseBody.message = 'Something went wrong while creating flight';
         errorResponseBody.err = StatusCodes.NOT_FOUND;
         return res

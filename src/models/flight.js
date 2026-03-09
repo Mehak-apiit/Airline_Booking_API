@@ -1,6 +1,4 @@
-'use strict';
-
-import { model } from 'mongoose';
+'use strict'
 import { Model, DataTypes } from 'sequelize';
 
 export default function defineFlight(sequelize) {

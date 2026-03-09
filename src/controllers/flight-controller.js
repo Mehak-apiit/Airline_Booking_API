@@ -1,18 +1,19 @@
 import { StatusCodes } from "http-status-codes";
 import FlightService from '../services/flight-service.js';
-import {successResponseBody, errorResponseBody} from '../utils/response-body.js';
+import { successResponseBody, errorResponseBody } from '../utils/response-body.js';
 const flightService = new FlightService();
 class FlightController {
     async createFlight(req, res) {
         try {
+            console.log(req.body);
             const flight = await flightService.createFlightService({
                 flightNumber: req.body.flightNumber,
-                airpalneId: req.body.airplaneId,
-                departureAirpotId: req.body.departureAirportId,
-                arrivalAirpotId: req.body.arrivalAirportId,
+                airplaneId: req.body.airplaneId,
+                departureAirportId: req.body.departureAirportId,
+                arrivalAirportId: req.body.arrivalAirportId,
                 arrivalTime: req.body.arrivalTime,
                 departureTime: req.body.departureTime,
-                price:req.body. price,
+                price: req.body.price,
                 boardingGate: req.body.boradingGate,
                 totalSeats: req.body.totalSeats
 
@@ -24,7 +25,7 @@ class FlightController {
                 .json({
                     success: true,
                     message: 'Successfully create a flight',
-                    data: airplane,
+                    data: flight,
                     error: {}
                 })
         } catch (error) {
@@ -41,20 +42,20 @@ class FlightController {
 
         }
     };
-    async getAllFlights(req,res) {
+    async getAllFlights(req, res) {
         try {
-            const flights = await FlightService.getAllFlights(req.query);
-            successResponseBody.data = flight;
+            const flights = await flightService.getAllFlights(req.query);
+            successResponseBody.data = flights;
             return res
-                     .status(StatusCodes.CREATED)
-                     .json(successResponseBody);
+                .status(StatusCodes.CREATED)
+                .json(successResponseBody);
 
-        }catch(error){
+        } catch (error) {
             errorResponseBody.err = error;
             throw error;
 
         }
     }
-   
+
 }
 export default FlightController;

@@ -10,8 +10,8 @@ export default {
         table: 'Cities',
         field: 'id'
       },
-      onUpdate: 'CASCADE',
-      onDELETE: 'CASCADE'
+      //onUpdate: 'CASCADE',
+      //onDELETE: 'CASCADE'
     });
   },
   async down(queryInterface, Sequelize) {

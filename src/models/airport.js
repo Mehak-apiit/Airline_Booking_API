@@ -12,11 +12,11 @@ export default function defineAirport(sequelize) {
       });
       this.hasMany(models.Flight, {
         foreignKey: 'departureAirportId',
-        onDelete: 'CASCADE'
+        //onDelete: 'CASCADE'
       });
       this.hasMany(models.Flight, {
         foreignKey: 'arrivalAirportId',
-        onDelete: 'CASCADE'
+        //onDelete: 'CASCADE'
 
       });
     }

@@ -61,7 +61,8 @@ class FlightService {
         const flights = await flightRepository.getAllFlights(customFilter,sortFilter);
         return flights;
        }catch(error){
-        return res.Status(StatusCodes.INTERNAL_SERVER_ERROR).json({message: 'Cannot fetch data for all the flights'});
+        console.log(error);
+        throw error;
        }
 
 
