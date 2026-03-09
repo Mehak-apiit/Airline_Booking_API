@@ -9,6 +9,10 @@ export default function defineAirplane(sequelize) {
         foreignKey: 'airplaneId',
         onDelete: 'CASCADE'
       });
+      this.hasMany(models.Seat, {
+        foreignKey: 'airplaneId',
+        onDelete:'CASCADE'
+      });
     }
   }
   Airplane.init({
