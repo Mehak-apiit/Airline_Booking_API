@@ -9,16 +9,17 @@ class FlightService {
             const flight = await flightRepository.create(data);
             return flight;
         } catch (error) {
-            {
-            if(error.name == 'SequelizeValidationError'){
-                let explanation = [];
-                error.errors.forEach((err) => {
-                    explanation.push(err.message);
-                });
-                return res.Status(StatusCodes.BAD_REQUEST).json({message: 'Validation error'});
-            }
-            return res.Status(StatusCodes.INTERNAL_SERVER_ERROR).json({message: 'Can not create flight'});
-        }
+            throw error;
+        //     {
+        //     if(error.name == 'SequelizeValidationError'){
+        //         let explanation = [];
+        //         error.errors.forEach((err) => {
+        //             explanation.push(err.message);
+        //         });
+        //         return res.Status(StatusCodes.BAD_REQUEST).json({message: 'Validation error'});
+        //     }
+        //     return res.Status(StatusCodes.INTERNAL_SERVER_ERROR).json({message: 'Can not create flight'});
+        // }
         }
 
     };

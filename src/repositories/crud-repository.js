@@ -5,34 +5,56 @@ class CrudRepository {
         this.model = model;
     }
     async create(data) {
-        const response = await this.model.create(data);
-        return response;
+        try {
+            const response = await this.model.create(data);
+            return response;
+        }
+        catch (error) {
+            throw error;
+        }
 
     }
     async getAll() {
-        const response = await this.model.findAll();
-        return response;
+        try {
+            const response = await this.model.findAll();
+            return response;
+        } catch (error) {
+            throw error;
+        }
 
     }
     async get(id) {
-        const response = await this.model.findByPk(id);
-        if(!response){
-            const error = new Error('Resource not found');
-            error.status = 404;
+        try {
+            const response = await this.model.findByPk(id);
+            if (!response) {
+                const error = new Error('Resource not found');
+                error.status = 404;
+                throw error;
+            }
+            return response;
+
+        } catch (error) {
             throw error;
+
         }
-        return response;
 
     }
     async destroy(data) {
-        const response = await this.model.destroy({
-            where: {
-                id: data
-            }
-        });
-        return response;
+        try {
+            const response = await this.model.destroy({
+                where: {
+                    id: data
+                }
+            });
+            return response;
+
+        } catch (error) {
+            throw error;
+
+        }
+
 
     }
-    
+
 }
 export default CrudRepository;

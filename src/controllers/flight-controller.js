@@ -2,20 +2,18 @@ import { StatusCodes } from "http-status-codes";
 import FlightService from '../services/flight-service.js';
 import {successResponseBody, errorResponseBody} from '../utils/response-body.js';
 const flightService = new FlightService();
-import { model } from "mongoose";
-import { response } from "express"
 class FlightController {
     async createFlight(req, res) {
         try {
-            const flight = await flightService.create({
+            const flight = await flightService.createFlightService({
                 flightNumber: req.body.flightNumber,
-                airpalneId: req.body.airpalneId,
-                departureAirpotId: req.body.departureAirpotId,
-                arrivalAirpotId: req.body.arrivalAirpotId,
+                airpalneId: req.body.airplaneId,
+                departureAirpotId: req.body.departureAirportId,
+                arrivalAirpotId: req.body.arrivalAirportId,
                 arrivalTime: req.body.arrivalTime,
                 departureTime: req.body.departureTime,
-                price:req.body.price,
-                boardingGate: req.body.boardingGate,
+                price:req.body. price,
+                boardingGate: req.body.boradingGate,
                 totalSeats: req.body.totalSeats
 
 
@@ -30,6 +28,7 @@ class FlightController {
                     error: {}
                 })
         } catch (error) {
+            console.log(error);
             errorResponseBody.error = error;
             return res
                 .status(StatusCodes.INTERNAL_SERVER_ERROR)

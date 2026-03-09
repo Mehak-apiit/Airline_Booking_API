@@ -2,15 +2,12 @@ import { StatusCodes } from "http-status-codes";
 import AirportService from '../services/airport-service.js';
 import {successResponseBody, errorResponseBody} from '../utils/response-body.js';
 const airportService = new AirportService();
-import { model } from "mongoose";
-import { response } from "express"
 class AirportController {
     async createAirportController(req, res) {
         try {
             const airport = await airportService.createAirportService({
                 name: req.body.name,
-                code: req.body,
-                address: req.body.address,
+                code: req.body.code,
                 cityId: req.body.cityId
             });
             successResponseBody.data = airport;
@@ -18,7 +15,7 @@ class AirportController {
                 .status(StatusCodes.CREATED)
                 .json(successResponseBody);
         } catch (error) {
-            errorResponseBody.error = error
+            errorResponseBody.err = error
             return res
                 .status(StatusCodes.INTERNAL_SERVER_ERROR)
                 .json({

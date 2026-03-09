@@ -7,6 +7,7 @@ class AirportService {
             const airplane = await airportRepository.create(data);
             return airplane;
         } catch (error){
+            throw error;
             if(error.name == 'SequelizeValidationError'){
                 let explanation = [];
                 error.errors.forEach((err) => {
