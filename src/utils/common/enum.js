@@ -4,4 +4,11 @@ const SEAT_TYPE = {
     PREMIUM_ECONOMY: 'premium-economy',
     FIRST_CLASS: 'first-class'
 }
-export default SEAT_TYPE;
+const BOOKING_STATUS = {
+    BOOKED: 'booked',
+    CANCELLED: 'cancelled',
+    INITIATED: 'initiated',
+    PENDING: 'pending',
+
+}
+export {SEAT_TYPE,BOOKING_STATUS}

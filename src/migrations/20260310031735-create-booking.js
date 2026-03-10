@@ -1,37 +1,38 @@
 'use strict';
-import {SEAT_TYPE} from '../utils/common/enum.js';
-const { BUSINESS, ECONOMY, PREMIUM_ECONOMY, FIRST_CLASS } = SEAT_TYPE;
 /** @type {import('sequelize-cli').Migration} */
-module.exports = {
+import {BOOKING_STATUS} from '../utils/common/enum.js';
+const {BOOKED,CANCELLED,INITIATED,PENDING} = BOOKING_STATUS;
+export default {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Seats', {
+    await queryInterface.createTable('Bookings', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      airplaneId: {
+      flightId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      status: {
+        type: Sequelize.ENUM,
+        allowNull: false,
+        values: [BOOKED, CANCELLED, INITIATED, PENDING],
+        defaultValue: INITIATED
+      },
+      noOfSeats: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'Airplanes',
-          key: 'id'
-        },
-        onDelete: 'CASCADE'
+        defaultValue: 1
+  
       },
-      row: {
+      totalCost: {
         type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      col: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      type: {
-        type: Sequelize.ENUM,
-        values: [BUSINESS, ECONOMY, PREMIUM_ECONOMY, FIRST_CLASS],
-        defaultValue: ECONOMY,
         allowNull: false
       },
       createdAt: {
@@ -45,6 +46,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Seats');
+    await queryInterface.dropTable('Bookings');
   }
 };

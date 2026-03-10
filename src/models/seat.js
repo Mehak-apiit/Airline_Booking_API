@@ -1,7 +1,7 @@
 'use strict';
 
 import { Model, DataTypes } from 'sequelize';
-import SEAT_TYPE from '../utils/common/enum.js';
+import {SEAT_TYPE} from '../utils/common/enum.js';
 const {BUSINESS,ECONOMY,PREMIUM_ECONOMY,FIRST_CLASS} = SEAT_TYPE;
 export default function defineAirplane(sequelize) {
   class Seat extends Model {

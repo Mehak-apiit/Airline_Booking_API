@@ -22,7 +22,7 @@ export default {
           model: 'Airplanes',
           key: 'id'
         },
-        //onDelete: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       departureAirportId: {
         allowNull: false,
@@ -31,7 +31,7 @@ export default {
           model: 'Airports',
           key: 'code'
         },
-        //onDelete: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       arrivalAirportId: {
         allowNull: false,
@@ -40,7 +40,7 @@ export default {
           model: 'Airports',
           key: 'code'
         },
-        //onDelete: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       arrivalTime: {
         type: Sequelize.DATE,
