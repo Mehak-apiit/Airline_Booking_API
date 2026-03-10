@@ -1,7 +1,7 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
-import {BOOKING_STATUS} from '../utils/common/enum.js';
-const {BOOKED,CANCELLED,INITIATED,PENDING} = BOOKING_STATUS;
+import { BOOKING_STATUS } from '../utils/common/enum.js';
+const { BOOKED, CANCELLED, INITIATED, PENDING } = BOOKING_STATUS;
 export default {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Bookings', {
@@ -29,7 +29,7 @@ export default {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 1
-  
+
       },
       totalCost: {
         type: Sequelize.INTEGER,

@@ -1,8 +1,8 @@
 'use strict';
 
 import { Model, DataTypes } from 'sequelize';
-import {BOOKING_STATUS} from '../utils/common/enum.js';
-const {BOOKED,CANCELLED,INITIATED,PENDING} = BOOKING_STATUS;
+import { BOOKING_STATUS } from '../utils/common/enum.js';
+const { BOOKED, CANCELLED, INITIATED, PENDING } = BOOKING_STATUS;
 
 export default function defineBooking(sequelize) {
   class Booking extends Model {
@@ -10,33 +10,33 @@ export default function defineBooking(sequelize) {
       // define association here
     }
   }
-  Airplane.init({
+  Booking.init({
     flightId: {
       type: DataTypes.INTEGER,
       allowNull: false
 
     },
-    userId:{
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
     status: {
       type: DataTypes.ENUM,
-      values:[BOOKED,CANCELLED,INITIATED,PENDING],
+      values: [BOOKED, CANCELLED, INITIATED, PENDING],
       defaultValue: INITIATED,
       allowNull: false
     },
-    noOfSeats:{
+    noOfSeats: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 1
     },
-    totalCost:{
+    totalCost: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   });
-  return Airplane;
+  return Booking;
 }
 
 

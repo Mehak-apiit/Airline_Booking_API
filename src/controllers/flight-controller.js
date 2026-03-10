@@ -44,7 +44,7 @@ class FlightController {
     };
     async getAllFlights(req, res) {
         try {
-            const flights = await flightService.getAllFlights(req.query);
+            const flights = await flightService.getAllFlightsService(req.query);
             successResponseBody.data = flights;
             return res
                 .status(StatusCodes.CREATED)
@@ -54,6 +54,17 @@ class FlightController {
             errorResponseBody.err = error;
             throw error;
 
+        }
+    };
+    async getFlight(req,res){
+        try{
+            const flight = await flightService.getFlightService(req.params.id);
+            successResponseBody.data = flight;
+            return res
+                     .status(StatusCodes.OK)
+                     
+        }catch(error){
+            throw error;
         }
     }
 
