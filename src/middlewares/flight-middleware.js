@@ -51,5 +51,16 @@ function validateCreateRequest(req, res, next) {
             .json(errorResponseBody);
     }
     next();
-}
-export default validateCreateRequest;
+};
+    function validateUpdateSeatsRequest(req, res, next) {
+        if (!req.body.seats) {
+        errorResponseBody.message = 'Something went wrong while booking the seat';
+        errorResponseBody.err = StatusCodes.NOT_FOUND;
+        return res
+            .status(StatusCodes.BAD_REQUEST)
+            .json(errorResponseBody);
+    }
+        
+    }
+
+export {validateCreateRequest,validateUpdateSeatsRequest};

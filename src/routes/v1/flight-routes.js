@@ -3,7 +3,7 @@ import express from 'express';
 const router = express.Router();
 import FlightController from '../../controllers/flight-controller.js';
 
-import validateCreateRequest from '../../middlewares/flight-middleware.js';
+import {validateCreateRequest,validateUpdateSeatsRequest} from '../../middlewares/flight-middleware.js';
 const flightController = new FlightController();
 // /api/v1/airplanes POST
 // http://localhost:3000/api/v1/airplane
@@ -14,6 +14,10 @@ router.get('/',
 router.get('/:id',
     flightController.getFlight
 
+);
+router.patch(
+    '/:id',
+    flightController.updateSeats
 );
 
 

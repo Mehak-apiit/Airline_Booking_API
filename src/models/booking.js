@@ -35,6 +35,9 @@ export default function defineBooking(sequelize) {
       type: DataTypes.INTEGER,
       allowNull: false
     }
+  }, {
+    sequelize,
+    modelName: 'Booking',
   });
   return Booking;
 }

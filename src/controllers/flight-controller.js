@@ -66,7 +66,26 @@ class FlightController {
         }catch(error){
             throw error;
         }
-    }
+    };
+    async updateSeats(req,res){
+        try{
+            const response = await flightService.updateSeatsService({
+                flightId: req.params.id,
+                seats: req.body.seats,
+                dec: req.body.dec
+            });
+            successResponseBody.data = response;
+            return res
+                     .status(StatusCodes.OK)
+                     .json(successResponseBody);
+                     
+        }catch(error){
+            errorResponseBody.err = error;
+            return res
+                        .status(StatusCodes.INTERNAL_SERVER_ERROR)
+                        .json(errorResponseBody);
+        }
 
+}
 }
 export default FlightController;

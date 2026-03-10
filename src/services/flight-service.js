@@ -75,7 +75,16 @@ class FlightService {
             throw error;
             
         }
+    };
+    async updateSeatsService(data){
+        try{
+            const response = await flightRepository.updateRemainingSeats(data.flightId,data.seats,data.dec);
+            return response;
+        }catch(error){
+            throw error;
+        }
     }
+
 }
 
 
