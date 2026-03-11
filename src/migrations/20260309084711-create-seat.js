@@ -2,8 +2,8 @@
 import {SEAT_TYPE} from '../utils/common/enum.js';
 const { BUSINESS, ECONOMY, PREMIUM_ECONOMY, FIRST_CLASS } = SEAT_TYPE;
 /** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up(queryInterface, Sequelize) {
+export default {
+    async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Seats', {
       id: {
         allowNull: false,
@@ -47,4 +47,4 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Seats');
   }
-};
+  };

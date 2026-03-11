@@ -1,7 +1,9 @@
 import CrudRepository from './crud-repository.js';
 import db from '../models/index.js';
 import { Sequelize } from 'sequelize';
-//import {Flight,Airplane,Aiirport,City} from '../models/index.js';
+import {Flight,Airplane,Aiirport,City} from '../models/index.js';
+import db from '../models/index.js';
+import addRowLockOnFlights from './queries.js';
 const { Flight } = db;
 class FlightRespository extends CrudRepository {
     constructor() {
