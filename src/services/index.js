@@ -3,4 +3,5 @@ import CityService from "./city-service.js";
 import AirportService from './airport-service.js';
 import FlightService from './flight-service.js';
 import BookingService from "./booking-service.js";
-export {AirplaneService,CityService,AirportService,FlightService,BookingService};
+import UserService from "./user-service.js";
+export {AirplaneService,CityService,AirportService,FlightService,BookingService,UserService};
