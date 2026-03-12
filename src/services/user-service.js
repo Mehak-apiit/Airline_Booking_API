@@ -1,9 +1,10 @@
 import { StatusCodes } from "http-status-codes";
 import {UserRepository} from "../repositories/user-repository.js";
 const userRepo = new UserRepository();
+import {Auth} from '../utils/common/auth.js';
 async function create(data) {
     try{
-        const user = await UserRepo.create(data);
+        const user = await userRepo.create(data);
         return user;
     } catch(error) {
         if (error.name == 'SequelizeUniqueConstraintError' || error.name == 'SequelizeValidationError') {
@@ -16,4 +17,29 @@ async function create(data) {
             throw error;
     }
 }
-export default create;
+async function signin(data) {
+    try{
+        const user = await userRepo.getUserByEmail(data.email);
+        if(!user){
+            throw error;
+        }
+        const passwordMatch = Auth.checkPassword(data.password,user.password);
+        if(!passwordMatch){
+            throw error;
+        }
+        const jwt = Auth.createToken({id: user.id, email: user.email});
+        return jwt;
+    } catch(error) {
+       
+            throw error;
+    }
+}
+async function checkPassword(plainPassword,encryptedPassword){
+    try{
+        return bcrypt.compareSync(plainPassword,encryptedPassword);
+    }catch(error){
+        throw error;
+    }
+}
+
+export {create,signin,checkPassword};

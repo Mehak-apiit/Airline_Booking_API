@@ -1,2 +1,3 @@
 import Enums from './enum.js';
-export default Enums;
+import Auth from './auth.js';
+export {Enums,Auth};

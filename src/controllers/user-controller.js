@@ -3,9 +3,9 @@ import UserService from '../services/user-service.js';
 import {successResponseBody, errorResponseBody} from '../utils/response-body.js';
 const airportService = new AirportService();
 class UserController {
-    async signup(req, res) {
+    async sigin(req, res) {
         try {
-            const user = await UserService.create({
+            const user = await UserService.sigin({
                 email: req.body.email,
                 password: req.body.password
             });
@@ -26,6 +26,7 @@ class UserController {
 
         }
     };
+     
     
      
 }
