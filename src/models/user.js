@@ -1,8 +1,10 @@
 'use strict';
 
 import { Model, DataTypes } from 'sequelize';
+const bcrypt = require('bcrypt');
+import {ServerConfig} from '../config';
 
-export default function defineAirplane(sequelize) {
+export default function defineUser(sequelize) {
   class User extends Model {
     static associate(models) {
       
@@ -25,6 +27,11 @@ export default function defineAirplane(sequelize) {
     sequelize,
     modelName: 'User',
   });
+  User.beforeCreate(function encrypt(user){
+    const encryptedPassword = bcrypt.hashSync(user.password, +ServerConfig.SALT_ROUNDS);
+    user.password = encryptedPassword;
+
+  });
   return User;
-}
+};
 
