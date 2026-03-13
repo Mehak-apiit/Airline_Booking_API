@@ -4,4 +4,5 @@ import AirportRepository from './airport-repository.js';
 import FlightRespository from './flight-repository.js';
 import BookingRespository from './booking-repository.js';
 import UserRepository from './user-repository.js';
-export {AirplaneRepository,CityRepository,AirportRepository,FlightRespository,BookingRespository,UserRepository};
+import TicketRepository from './ticket-repository.js';
+export {AirplaneRepository,CityRepository,AirportRepository,FlightRespository,BookingRespository,UserRepository,TicketRepository};

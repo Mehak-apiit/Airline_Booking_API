@@ -4,4 +4,5 @@ import AirportController from './airport-controller.js';
 import FlightController from './flight-controller.js';
 import BookingController from './booking-controller.js';
 import UserController from './user-controller.js';
-export {AirplaneController,CityController,AirportController,FlightController,BookingController,UserController};
+import EmailController from './email-controller.js';
+export {AirplaneController,CityController,AirportController,FlightController,BookingController,UserController,EmailController};
