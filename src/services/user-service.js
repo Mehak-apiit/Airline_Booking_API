@@ -41,5 +41,21 @@ async function checkPassword(plainPassword,encryptedPassword){
         throw error;
     }
 }
-
-export {create,signin,checkPassword};
+async function isAuthenticated(token){
+    try{
+        if(!token){
+            throw error;
+        }
+        const respose = Auth.verifyToken(token);
+        const user = await userRepo.get(respose.id);
+        if(!user){
+            throw error;
+        }
+    }catch(error){
+        if(error.name == 'jsonWebTokenError'){
+            throw error;
+        }
+        throw error;
+    }
+}
+export {create,signin,checkPassword,isAuthenticated};

@@ -15,4 +15,12 @@ async function createToken(input) {
         throw error;
     }
 }
-export {checkPassword,createToken}
+async function verifyToken(token){
+    try {
+        return jwt.verify(token,ServerConfig.JWT_SECRET);
+    }catch(error){
+        console.log(error);
+        throw error;
+    }
+}
+export {checkPassword,createToken,verifyToken}
