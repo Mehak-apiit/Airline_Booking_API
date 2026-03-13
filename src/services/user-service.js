@@ -51,8 +51,12 @@ async function isAuthenticated(token){
         if(!user){
             throw error;
         }
+        return user.id;
     }catch(error){
         if(error.name == 'jsonWebTokenError'){
+            throw error;
+        }
+        if(error.name == 'TokenExpiredError'){
             throw error;
         }
         throw error;
