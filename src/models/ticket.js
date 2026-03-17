@@ -12,8 +12,9 @@ export default function defineAirplane(sequelize) {
       // define association here
     }
   }
-  Ticket.init({
-    subject: DataTypes.STRING,
+ Ticket.init({
+    subject:{
+    type: DataTypes.STRING,
     allowNull: false,
   },
     content: {
@@ -35,4 +36,4 @@ export default function defineAirplane(sequelize) {
     modelName: 'Ticket',
 });
 return Ticket;
-};
+}

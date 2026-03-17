@@ -1,4 +1,4 @@
-import { EmailService } from "../services";
+import {EmailService} from '../services/index.js';
 async function create(req,res){
     try{
         const response = await EmailService.createTicket({

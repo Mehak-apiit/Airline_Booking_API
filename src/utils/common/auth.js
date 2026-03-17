@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import {ServerConfig} from '../../config/serverConfig.js';
+import {ServerConfig} from '../../config/server-config.js';
 async function checkPassword(plainPassword, encryptedPassword) {
     try{
         return bcrypt.compareSync(plainPassword, encryptedPassword);
@@ -23,4 +23,4 @@ async function verifyToken(token){
         throw error;
     }
 }
-export {checkPassword,createToken,verifyToken}
+export {checkPassword,createToken,verifyToken};

@@ -3,6 +3,6 @@ import CityService from "./city-service.js";
 import AirportService from './airport-service.js';
 import FlightService from './flight-service.js';
 import BookingService from "./booking-service.js";
-import UserService from "./user-service.js";
+import {create,signinService,checkPasswordService,isAuthenticated} from './user-service.js';
 import EmailService from "./email-service.js";
-export {AirplaneService,CityService,AirportService,FlightService,BookingService,UserService,EmailService};
+export {AirplaneService,CityService,AirportService,FlightService,BookingService,create,signinService,checkPasswordService,isAuthenticated,EmailService};

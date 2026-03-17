@@ -1,9 +1,8 @@
 'use strict';
 
 import { Model, DataTypes } from 'sequelize';
-const bcrypt = require('bcrypt');
-import {ServerConfig} from '../config';
-
+import bcrypt from 'bcrypt';
+import { ServerConfig} from '../config/server-config.js';
 export default function defineUser(sequelize) {
   class User extends Model {
     static associate(models) {

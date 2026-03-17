@@ -1,5 +1,5 @@
 import express from 'express';
-const rateLimit = require('express-rate-limit');
+import rateLimit from 'express-rate-limit';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import {ServerConfig} from './config/index.js';
 import apiRoutes from './routes/index.js';

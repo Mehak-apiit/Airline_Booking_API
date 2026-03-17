@@ -1,11 +1,10 @@
 import { StatusCodes } from "http-status-codes";
-import UserService from '../services/user-service.js';
-import {successResponseBody, errorResponseBody} from '../utils/response-body.js';
-const airportService = new AirportService();
+import { signinService } from '../services/index.js';
+import { successResponseBody, errorResponseBody } from '../utils/response-body.js';
 class UserController {
-    async sigin(req, res) {
+    async register(req, res) {
         try {
-            const user = await UserService.sigin({
+            const user = await signinService({
                 email: req.body.email,
                 password: req.body.password
             });
@@ -26,8 +25,8 @@ class UserController {
 
         }
     };
-     
-    
-     
+
+
+
 }
 export default UserController;

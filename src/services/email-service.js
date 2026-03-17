@@ -1,5 +1,8 @@
 import TicketRepository from '../repositories/ticket-repository.js';
-import {MAILER} from '../config/serverConfig.js';
+//import {MAILER} from '../config/serverConfig.js';
+//import { ServerConfig } from '../config/server-config.js';
+import { ServerConfig } from '../config/server-config.js';
+import nodemailer from 'nodemailer';
 const ticketRepo = new TicketRepository();
 class EmailService {
     async sendEmail(mailFrom, mailTo, subject, text) {

@@ -1,6 +1,4 @@
 'use strict';
-
-
 import { Model, DataTypes } from 'sequelize';
 
 export default function defineAirport(sequelize) {

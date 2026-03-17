@@ -1,5 +1,6 @@
 import CrudRepository from './crud-repository.js';
-import {User} from '../models/index.js';
+import  db from '../models/index.js';
+const {User} = db;
 import { where } from 'sequelize';
 class UserRepository extends CrudRepository {
     constructor() {

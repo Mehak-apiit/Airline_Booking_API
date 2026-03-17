@@ -1,10 +1,10 @@
 import express from 'express';
-import {BookingController} from '../../controllers/booking-controller.js';
+import createBooking from '../../controllers/booking-controller.js';
 import { deflate } from 'zlib';
 
 const router = express.Router();
 router.post(
     '/',
-    BookingController.createBooking
+    createBooking
 )
 export default router;

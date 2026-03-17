@@ -1,6 +1,6 @@
-import {BookingService} from '../services/booking-service.js';
+import createBookingService from '../services/booking-service.js';
 import { StatusCodes } from 'http-status-codes';
-import {successResponseBody, errorResponseBody} from '../utils/common-utils.js';
+import {successResponseBody, errorResponseBody} from '../utils/response-body.js';
 async function createBooking(req, res){
     try{
         console.log("body", req.body);
