@@ -6,5 +6,7 @@ const ob = new UserController();
 const router = express.Router();
 
 //router.post("/signin", validateAuthRequest, UserController.signin);
-router.post("/signin",validateAuthRequest,ob.register);
+//router.post("/signin",validateAuthRequest,ob.register);
+router.post("/signin",ob.register);
+// http://localhost:3000/api/v1/auth/signin
 export default router;

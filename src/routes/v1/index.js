@@ -15,5 +15,6 @@ router.use('/airports',airportRoutes);
 router.use('/flights', flightRoutes);
 router.use('/booking', bookingRoutes);
 router.use('/auth', userRoutes);
+// http://localhost:3000/api/v1/auth
 
 export default router;

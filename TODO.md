@@ -1,0 +1,4 @@
+- [ ] Read current codebase files to capture APIs, setup, and project structure
+- [ ] Draft a professional GitHub-ready README.md with: overview, features, tech stack, architecture, setup, env vars, DB/migrations, API endpoints, sample requests, authentication, running instructions, and troubleshooting
+- [ ] Replace existing README.md with the final README content
+- [ ] (Optional) Run a quick sanity check: npm run dev / lint (if available)
